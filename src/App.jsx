@@ -7,16 +7,10 @@ function App() {
     return (
         <div className="bg-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
             <div className="text-white text-3xl font-bold animate-fade-in">Hello,</div>
-            <div className="text-white text-3xl mb-3 animate-fade-in-delayed">Welcome to my portfolio</div>
-            <div className="text-white mb-4 animate-fade-in-delayed">
-                Don't like the view? 
-                <button className="text-blue-400 hover:text-blue-300 ml-1">
-                    Click here
-                </button> to change
-            </div>
+            <div className="text-white text-3xl mb-5 animate-fade-in-delayed">Welcome to my portfolio.</div>
 
             {/* Phone View */}
-            <div className="w-72 h-[600px] bg-black rounded-3xl overflow-hidden shadow-xl border-4 border-black-800 relative animate-fade-in-delayed">
+            <div className="w-72 h-[600px] bg-black rounded-3xl overflow-hidden shadow-xl border-4 border-black-800 relative animate-fade-in-more-delayed">
                 {/* Phone Notch */}
                 <div className="absolute top-0 left-0 right-0 flex justify-center">
                     <div className="w-32 h-6 bg-black rounded-b-2xl"></div>
@@ -73,6 +67,13 @@ function App() {
                         <div className="w-32 h-1 bg-white rounded-full"></div>
                     </div>
                 </div>
+            </div>
+
+            <div className="text-white mt-2 animate-fade-in-more-delayed">
+                Don't like the view?
+                <button className="text-blue-400 hover:text-blue-300 ml-1">
+                    Click here
+                </button> to change
             </div>
         </div>
     );
