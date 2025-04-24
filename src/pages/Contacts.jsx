@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import AnimatedEnvelope from '../components/AnimatedEnvelope';
+import '../App.css';
 
 function ContactsPage() {
     const [profile] = useState({
@@ -7,19 +9,24 @@ function ContactsPage() {
         location: 'Auburndale, FL',
         email: 'colbyr416@gmail.com',
         phone: '(863)-514-8524',
-        bio: 'I am a linkedin profressional at programming and I should get an internship soon because i\'m so peak.',
+        bio: 'I\'m a full-stack developer who is passionate about what I do. I love solving tough challenges and use every project as a chance to learn and grow. Development is more than a job to me; it\'s something I love and constantly strive to improve at.',
         avatar: 'person'
     });
 
     const [socialLinks] = useState([
         { name: 'GitHub', image: 'https://img.icons8.com/?size=100&id=62856&format=png&color=FFFFFF', url: 'https://github.com/csrountree0' },
-        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: '#' },
-        { name: '', image: '/images/twitter.png', url: '#' },
-        { name: '', image: '/images/portfolio.png', url: '#' }
+        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: '#' }
     ]);
 
     return (
         <div className="flex-1 flex flex-col">
+            <style>
+                {`
+                    .phone-container:hover .phone-icon {
+                        animation: ring 1s ease-in-out;
+                    }
+                `}
+            </style>
             {/* Profile Header */}
             <div className="flex items-center pr-4 pl-4 pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
@@ -38,19 +45,21 @@ function ContactsPage() {
             </div>
 
             {/* Contact Info */}
-            <div className="px-4 mb-4">
+            <div className="px-4 mb-4 select-text">
                 <div className="text-white/50 text-sm mb-2">CONTACT INFO</div>
                 <div className="space-y-2">
-                    <div className="flex items-center">
-                        <span className="material-icons text-white/70 mr-3">email</span>
+                    <div className="flex items-center group">
+                        <div className="mr-3 flex items-center justify-center w-6 h-6">
+                            <AnimatedEnvelope />
+                        </div>
                         <div className="text-white text-sm">{profile.email}</div>
                     </div>
-                    <div className="flex items-center">
-                        <span className="material-icons text-white/70 mr-3">phone</span>
-                        <div className="text-white text-sm">{profile.phone}</div>
+                    <div className="phone-container flex items-center">
+                        <span className="phone-icon select-none material-icons text-white/70 mr-3">phone</span>
+                        <div className="text-white text-sm cursor-pointer">{profile.phone}</div>
                     </div>
                     <div className="flex items-center">
-                        <span className="material-icons text-white/70 mr-3">location_on</span>
+                        <span className="select-none material-icons text-white/70 mr-3">location_on</span>
                         <div className="text-white text-sm">{profile.location}</div>
                     </div>
                 </div>

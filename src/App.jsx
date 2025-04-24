@@ -4,12 +4,14 @@ import './App.css'
 import ClockPage from './pages/Clock'
 import WeatherPage from './pages/Weather'
 import ContactsPage from './pages/Contacts'
+import TraditionalPortfolio from './pages/TraditionalPortfolio'
 import { getTimeBasedBackground } from './pages/Clock'
 
 function App() {
     const [currentPage, setCurrentPage] = useState("home");
     const [currentTime, setCurrentTime] = useState(new Date());
-    const [isFolderOpen, setIsFolderOpen] = useState(false);
+    const [openFolders, setOpenFolders] = useState({});
+    const [isTraditionalView, setIsTraditionalView] = useState(false);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -19,8 +21,21 @@ function App() {
         return () => clearInterval(timer);
     }, []);
 
+    const toggleFolder = (folderName) => {
+        setOpenFolders(prev => ({
+            ...prev,
+            [folderName]: !prev[folderName]
+        }));
+    };
+
+    const isAnyFolderOpen = Object.values(openFolders).some(isOpen => isOpen);
+
+    if (isTraditionalView) {
+        return <TraditionalPortfolio onReturnToPhone={() => setIsTraditionalView(false)} initialSection="projects" />;
+    }
+
     return (
-        <div className="bg-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
+        <div className="select-none bg-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
             <div className="text-white text-3xl font-bold animate-fade-in">Hello,</div>
             <div className="text-white text-3xl mb-5 animate-fade-in-delayed">Welcome to my portfolio.</div>
 
@@ -65,32 +80,40 @@ function App() {
                                      </div>
 
                                     {/* Folder Contents */}
-                                    {isFolderOpen && (
-                                        <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center animate-fade-in">
-                                            <div className="grid grid-cols-4 gap-4 p-4">
-                                                <AppIcon name="Example" color="bg-gray-400" letter="a" icon={true} onClick={() => setCurrentPage("Contacts")}/>
-                                                <AppIcon name="Example" color="bg-gray-400" letter="a" icon={true}/>
-                                                <AppIcon name="Example" color="bg-gray-400" letter="a" icon={true}/>
-                                                <AppIcon name="Example" color="bg-gray-400" letter="a" icon={true}/>
+                                    {Object.entries(openFolders).map(([folderName, isOpen]) => isOpen && (
+                                        <div key={folderName} className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center animate-fade-in" onClick={(e) => {
+                                            e.stopPropagation();
+                                            toggleFolder(folderName);
+                                        }}>
+                                            <div className="text-white text-2xl font-bold mb-4">{folderName}</div>
+                                            <div className="grid grid-cols-3 gap-4 p-4 mb-26" onClick={(e) => e.stopPropagation()}>
+                                                {folderName === "Apps" && (
+                                                    <>
+                                                        <AppIcon name="Pathfinder" color="bg-gray-400" image="/maze.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Maze-Generation-and-Pathfinding/", "_blank");}}/>
+                                                        <AppIcon name="Visual Sort" color="bg-black rotate-270" letter="sort" icon={true} onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/sort-visualizer/", "_blank");}}/>
+                                                        <AppIcon name="More Details" color="bg-blue-400" letter="info" icon={true} onClick={(e) => {e.stopPropagation(); setIsTraditionalView(true);}}/>
+                                                    </>
+                                                )}
+                                                {folderName === "Games" && (
+                                                    <>
+                                                        <AppIcon name="Game 1" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+                                                        <AppIcon name="Game 2" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+                                                        <AppIcon name="Game 3" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+                                                    </>
+                                                )}
                                             </div>
-                                            <button 
-                                                className="mt-4 px-4 py-2 bg-white/20 rounded-lg text-white"
-                                                onClick={() => setIsFolderOpen(false)}
-                                            >
-                                                Close
-                                            </button>
                                         </div>
-                                    )}
+                                    ))}
 
                                     {/* Spacer */}
                                     <div className="flex-grow"></div>
 
                                     {/* Dock */}
-                                    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 flex justify-around">
-                                        <AppIcon name="Person" color="bg-green-400" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")}/>
-                                        <Folder name="Apps" color="bg-indigo-400" letter="terminal" icon={true} showLabel={false} isOpen={isFolderOpen} onClick={() => setIsFolderOpen(!isFolderOpen)}/>
-                                        <AppIcon name="Weather" color="bg-blue-400" letter="cloud" showLabel={false}/>
-                                        <AppIcon name="Weather" color="bg-blue-400" letter="cloud" showLabel={false}/>
+                                    <div className={`${isAnyFolderOpen ? 'bg-black/40' : 'bg-white/20'} backdrop-blur-sm rounded-xl p-3 flex justify-around`}>
+                                        <AppIcon name="Person" color="bg-green-400" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")} isDark={isAnyFolderOpen}/>
+                                        <Folder name="Apps" color="bg-indigo-400" letter="terminal" icon={true} showLabel={false} isOpen={openFolders["Apps"]} isDark={isAnyFolderOpen && !openFolders["Apps"]} onClick={() => toggleFolder("Apps")}/>
+                                        <Folder name="Games" color="bg-black" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolders["Games"]} isDark={isAnyFolderOpen && !openFolders["Games"]} onClick={() => toggleFolder("Games")}/>
+                                        <AppIcon name="Weather" color="bg-blue-400" letter="cloud" showLabel={false} isDark={isAnyFolderOpen}/>
                                     </div>
                                 </>
                             ) : currentPage === "Weather" ? (
@@ -109,8 +132,11 @@ function App() {
 
             <div className="text-white mt-2 animate-fade-in-more-delayed">
                 Don't like the view? Click
-                <button className="text-blue-400 hover:text-blue-300 ml-1 cursor-pointer">
-                     here
+                <button 
+                    className="text-blue-400 hover:text-blue-300 ml-1 cursor-pointer"
+                    onClick={() => setIsTraditionalView(true)}
+                >
+                    here
                 </button> to change
             </div>
         </div>
@@ -126,24 +152,26 @@ function HomeBar({currentPage, setCurrentPage}){
 }
 
 // create app icon
-function AppIcon({name,color,letter, icon=false, showLabel=true,onClick = () => {}}){
+function AppIcon({name, color, letter, icon=false, showLabel=true, image=null, onClick = () => {}, isDark=false}){
     return(
         <div className="flex flex-col items-center">
-            <div className={`w-12.5 h-12 rounded-xl ${color} flex items-center align-middle justify-center shadow-md cursor-pointer`} onClick={onClick}>
-                <div className={`${icon ? "material-icons" : ""} text-white text-lg text-center`}>{letter}</div>
+            <div className={`w-12.5 h-12 rounded-xl ${color} flex items-center align-middle justify-center shadow-md ${!isDark ? 'cursor-pointer' : ''} overflow-hidden ${isDark ? 'opacity-50' : ''}`} onClick={!isDark ? onClick : undefined}>
+                {image ? (
+                    <img src={image} alt={name} className="w-full h-full object-contain p-2"/>
+                ) : (
+                    <div className={`${icon ? "material-icons" : ""} text-white text-lg text-center`}>{letter}</div>
+                )}
             </div>
             {showLabel && <div className="text-center text-white text-xs mt-1 cursor-default">{name}</div>}
-
         </div>
-
-    )
+    );
 }
 
 // create folder component
-function Folder({name, color, letter, icon=false, showLabel=true, isOpen=false, onClick = () => {}}){
+function Folder({name, color, letter, icon=false, showLabel=true, isOpen=false, isDark=false, onClick = () => {}}){
     return(
         <div className="flex flex-col items-center">
-            <div className={`w-12.5 h-12 rounded-xl ${color} flex items-center align-middle justify-center shadow-md cursor-pointer ${isOpen ? 'ring-2 ring-white' : ''}`} onClick={onClick}>
+            <div className={`w-12.5 h-12 rounded-xl ${color} flex items-center align-middle justify-center shadow-md ${!isDark ? 'cursor-pointer' : ''} ${isOpen ? 'ring-2 ring-white' : ''} ${isDark ? 'opacity-50' : ''}`} onClick={!isDark ? onClick : undefined}>
                 <div className={`${icon ? "material-icons" : ""} text-white text-lg text-center`}>{letter}</div>
             </div>
             {showLabel && <div className="text-center text-white text-xs mt-1 cursor-default">{name}</div>}
