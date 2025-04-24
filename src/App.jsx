@@ -36,8 +36,8 @@ function App() {
 
     return (
         <div className="select-none bg-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
-            <div className="text-white text-3xl font-bold animate-fade-in">Hello,</div>
-            <div className="text-white text-3xl mb-5 animate-fade-in-delayed">Welcome to my portfolio.</div>
+            <div className="text-white text-2xl font-bold animate-fade-in">Hello,</div>
+            <div className="text-white text-2xl mb-5 animate-fade-in-delayed">Welcome to my portfolio.</div>
 
             {/* Phone View */}
             <div className="w-72 h-[600px] bg-black rounded-3xl overflow-hidden shadow-xl border-4 border-black-800 relative animate-fade-in-more-delayed">
@@ -87,7 +87,7 @@ function App() {
                                         }}>
                                             <div className="text-white text-2xl font-bold mb-4">{folderName}</div>
                                             <div className="grid grid-cols-3 gap-4 p-4 mb-26" onClick={(e) => e.stopPropagation()}>
-                                                {folderName === "Apps" && (
+                                                {folderName === "Projects" && (
                                                     <>
                                                         <AppIcon name="Pathfinder" color="bg-gray-400" image="/maze.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Maze-Generation-and-Pathfinding/", "_blank");}}/>
                                                         <AppIcon name="Visual Sort" color="bg-black rotate-270" letter="sort" icon={true} onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/sort-visualizer/", "_blank");}}/>
@@ -110,10 +110,9 @@ function App() {
 
                                     {/* Dock */}
                                     <div className={`${isAnyFolderOpen ? 'bg-black/40' : 'bg-white/20'} backdrop-blur-sm rounded-xl p-3 flex justify-around`}>
-                                        <AppIcon name="Person" color="bg-green-400" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")} isDark={isAnyFolderOpen}/>
-                                        <Folder name="Apps" color="bg-indigo-400" letter="terminal" icon={true} showLabel={false} isOpen={openFolders["Apps"]} isDark={isAnyFolderOpen && !openFolders["Apps"]} onClick={() => toggleFolder("Apps")}/>
-                                        <Folder name="Games" color="bg-black" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolders["Games"]} isDark={isAnyFolderOpen && !openFolders["Games"]} onClick={() => toggleFolder("Games")}/>
-                                        <AppIcon name="Weather" color="bg-blue-400" letter="cloud" showLabel={false} isDark={isAnyFolderOpen}/>
+                                        <AppIcon name="Contacts" color="bg-green-500" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")} isDark={isAnyFolderOpen}/>
+                                        <Folder name="Projects" color="bg-indigo-500" letter="terminal" icon={true} showLabel={false} isOpen={openFolders["Projects"]} isDark={isAnyFolderOpen && !openFolders["Projects"]} onClick={() => toggleFolder("Projects")}/>
+                                        <Folder name="Games" color="bg-gray-500" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolders["Games"]} isDark={isAnyFolderOpen && !openFolders["Games"]} onClick={() => toggleFolder("Games")}/>
                                     </div>
                                 </>
                             ) : currentPage === "Weather" ? (

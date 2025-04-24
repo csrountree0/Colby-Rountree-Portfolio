@@ -14,15 +14,15 @@ function ContactsPage() {
     });
 
     const [socialLinks] = useState([
-        { name: 'GitHub', image: 'https://img.icons8.com/?size=100&id=62856&format=png&color=FFFFFF', url: 'https://github.com/csrountree0' },
-        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: '#' }
+        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: '#' },
+        { name: 'GitHub', image: 'https://img.icons8.com/?size=100&id=62856&format=png&color=FFFFFF', url: 'https://github.com/csrountree0' }
     ]);
 
     return (
         <div className="flex-1 flex flex-col">
             <style>
                 {`
-                    .phone-container:hover .phone-icon {
+                    .pin-container:hover .pin-icon {
                         animation: ring 1s ease-in-out;
                     }
                 `}
@@ -30,8 +30,8 @@ function ContactsPage() {
             {/* Profile Header */}
             <div className="flex items-center pr-4 pl-4 pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
-                    <span className="material-icons text-white text-4xl">{profile.avatar}</span>
-                </div>
+                <img src="/me.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
+                 </div>
                 <div>
                     <div className="text-white text-xl font-medium">{profile.name}</div>
                     <div className="text-white/70 text-sm">{profile.title}</div>
@@ -54,12 +54,8 @@ function ContactsPage() {
                         </div>
                         <div className="text-white text-sm">{profile.email}</div>
                     </div>
-                    <div className="phone-container flex items-center">
-                        <span className="phone-icon select-none material-icons text-white/70 mr-3">phone</span>
-                        <div className="text-white text-sm cursor-pointer">{profile.phone}</div>
-                    </div>
-                    <div className="flex items-center">
-                        <span className="select-none material-icons text-white/70 mr-3">location_on</span>
+                    <div className="pin-container flex items-center">
+                        <span className="pin-icon select-none material-icons text-white/70 mr-3">location_on</span>
                         <div className="text-white text-sm">{profile.location}</div>
                     </div>
                 </div>

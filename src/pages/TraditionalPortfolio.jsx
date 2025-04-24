@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ProjectDetail, { projects } from './ProjectDetail';
 import AnimatedEnvelope from '../components/AnimatedEnvelope';
+import Technology from '../components/Technology';
 
 function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
     const [currentSection, setCurrentSection] = useState(initialSection);
@@ -27,35 +28,49 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
         <div className="min-h-screen bg-gray-900 text-white p-8">
             {/* Header with Phone Icon */}
             <div className="flex justify-between items-center mb-12">
-                <h1 className="w-[20%] text-2xl font-bold">Colby Rountree</h1>
-                <nav className="flex space-x-8">
+                <div className="w-1/3">
+                    <h1 className="text-2xl font-bold select-none">Colby Rountree</h1>
+                </div>
+                <nav className="w-1/3 flex justify-center space-x-8 relative">
                     <button 
-                        className={`text-lg ${currentSection === 'about' ? 'text-blue-400' : 'text-gray-400 hover:text-white'}`}
+                        className={`text-lg px-4 py-2 rounded-lg transition-all duration-300 ${
+                            currentSection === 'about' 
+                                ? 'text-blue-400 bg-blue-400/10' 
+                                : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                        }`}
                         onClick={() => setCurrentSection('about')}
                     >
                         About
                     </button>
                     <button 
-                        className={`text-lg ${currentSection === 'projects' ? 'text-blue-400' : 'text-gray-400 hover:text-white'}`}
+                        className={`text-lg px-4 py-2 rounded-lg transition-all duration-300 ${
+                            currentSection === 'projects' 
+                                ? 'text-blue-400 bg-blue-400/10' 
+                                : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                        }`}
                         onClick={() => setCurrentSection('projects')}
                     >
                         Projects
                     </button>
                     <button 
-                        className={`text-lg ${currentSection === 'contact' ? 'text-blue-400' : 'text-gray-400 hover:text-white'}`}
+                        className={`text-lg px-4 py-2 rounded-lg transition-all duration-300 ${
+                            currentSection === 'contact' 
+                                ? 'text-blue-400 bg-blue-400/10' 
+                                : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                        }`}
                         onClick={() => setCurrentSection('contact')}
                     >
                         Contact
                     </button>
                 </nav>
-                <div className="w-[20%]">
-                <button 
-                    onClick={onReturnToPhone}
-                    className="w-[20%] p-1 rounded-full hover:bg-gray-800 transition-colors"
-                    title="Return to phone view"
-                >
-                    <span className="mt-1 material-icons">phone_iphone</span>
-                </button>
+                <div className="w-1/3 flex justify-end">
+                    <button 
+                        onClick={onReturnToPhone}
+                        className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+                        title="Return to phone view"
+                    >
+                        <span className="material-icons align-middle">phone_iphone</span>
+                    </button>
                 </div>
             </div>
 
@@ -82,7 +97,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                                 >
                                     <div className="relative h-48 mb-4">
                                         <img 
-                                            src={project.image} 
+                                            src={project.images[0].src} 
                                             alt={project.title}
                                             className="w-full h-full object-contain rounded-lg"
                                         />
@@ -91,9 +106,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                                     <p className="text-gray-300 mb-4">{project.description}</p>
                                     <div className="flex flex-wrap gap-2">
                                         {project.technologies.map((tech, index) => (
-                                            <span key={index} className="px-2 py-1 bg-gray-700 rounded-full text-xs">
-                                                {tech}
-                                            </span>
+                                            <Technology key={index} tech={tech} size="sm" />
                                         ))}
                                     </div>
                                 </div>
