@@ -77,11 +77,91 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
             {/* Content Sections */}
             <div className="max-w-4xl mx-auto">
                 {currentSection === 'about' && (
-                    <div className="space-y-6 text-center">
-                        <h1 className="text-4xl font-bold mb-4">About Me</h1>
-                        <p className="text-lg text-gray-300">
-                          add later 
-                        </p>
+                    <div className="space-y-8">
+                        {/* Profile Header */}
+                        <div className="flex flex-col sm:flex-row items-center gap-6">
+                            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500">
+                                <img 
+                                    src="/me.jpg" 
+                                    alt="Colby Rountree" 
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="text-center sm:text-left">
+                                <h1 className="text-4xl font-bold mb-2">Colby Rountree</h1>
+                                <p className="text-xl text-blue-400 mb-2">Computer Science Student</p>
+                                <p className="text-gray-300">Auburndale, FL</p>
+                            </div>
+                        </div>
+
+                        {/* Bio Section */}
+                        <div className="bg-gray-800 rounded-xl p-6">
+                            <h2 className="text-2xl font-bold mb-4">About Me</h2>
+                            <p className="text-gray-300 leading-relaxed">
+                            I'm a hardworking student with a deep passion for building and problem-solving through code. Development is more than a job to me, it is something I genuinely enjoy and feel driven to improve at every day. I use every project as an opportunity for growth, whether it's through learning a new framework, working through a tough bug, or trying to find the most efficient solution to a problem. I'm always looking to improve my skills, both technically and personally.
+                            </p>
+                        </div>
+
+                            {/* Skills Section */}
+                        <div className="bg-gray-800 rounded-xl p-6">
+                            <h2 className="text-2xl font-bold mb-4">Skills</h2>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                            <Technology tech={{ name: "JavaScript", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" }} size="md" />
+                                <Technology tech={{ name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" }} size="md" />
+                                <Technology tech={{ name: "HTML5", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" }} size="md" />
+                                <Technology tech={{ name: "CSS3", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" }} size="md" />
+                                <Technology tech={{ name: "Tailwind", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" }} size="md" />
+                                <Technology tech={{ name: "C++", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" }} size="md" />
+                                <Technology tech={{ name: "Python", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" }} size="md" />
+                                <Technology tech={{ name: "SQL", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" }} size="md" />
+                                <Technology tech={{ name: "Git", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" }} size="md" />
+                                <Technology tech={{ name: "RESTful API", logo: "/rest-api-icon.svg" }} size="md" />
+                            </div>
+                            <div className="mt-4">
+                                <h3 className="text-lg font-semibold mb-2">Soft Skills</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    <span className="px-3 py-1 bg-blue-400/10 text-blue-400 rounded-full">Problem Solving</span>
+                                    <span className="px-3 py-1 bg-blue-400/10 text-blue-400 rounded-full">Teamwork</span>
+                                    <span className="px-3 py-1 bg-blue-400/10 text-blue-400 rounded-full">Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {/* Experience Section */}
+                        <div className="bg-gray-800 rounded-xl p-6">
+                            <h2 className="text-2xl font-bold mb-4">Work Experience</h2>
+                            <div className="space-y-6">
+                                <div className="border-l-4 border-blue-400 pl-4">
+                                    <h3 className="text-xl font-semibold">Student Education Assistant - Computer Science</h3>
+                                    <p className="text-gray-400">2024 - Present</p>
+                                    <p className="text-gray-300 mt-2">
+                                        • Working with assigned professor to ensure assignments are error-free and ready for distribution<br/>
+                                        • Grading assignments to verify accurate responses and provide feedback<br/>
+                                        • Assisted in the development of a Linux Ubuntu virtual machine to create an environment that supports MongoDB and PostgreSQL using Robo3T and pgAdmin III
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Education Section */}
+                        <div className="bg-gray-800 rounded-xl p-6">
+                            <h2 className="text-2xl font-bold mb-4">Education</h2>
+                            <div className="border-l-4 border-blue-400 pl-4">
+                                <h3 className="text-xl font-semibold">Florida Polytechnic University</h3>
+                                <p className="text-gray-400">August 2022 - May 2026</p>
+                                <p className="text-gray-300 mt-2">
+                                    Bachelor of Science in Computer Science<br/>
+                                    GPA: 3.8<br/>
+                                    President's List 2022 - Present
+                                </p>
+                            </div>
+                        </div>
+
+                        
+
+
+                        
                     </div>
                 )}
 

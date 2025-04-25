@@ -14,7 +14,7 @@ function ContactsPage() {
     });
 
     const [socialLinks] = useState([
-        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: '#' },
+        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: 'https://www.linkedin.com/in/colby-rountree-aa2a7b2a5/' },
         { name: 'GitHub', image: 'https://img.icons8.com/?size=100&id=62856&format=png&color=FFFFFF', url: 'https://github.com/csrountree0' }
     ]);
 

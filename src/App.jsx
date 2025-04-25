@@ -35,7 +35,7 @@ function App() {
     }
 
     return (
-        <div className="select-none bg-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
+        <div className="select-none bg-gray-900 flex flex-col items-center justify-center min-h-screen p-4">
             <div className="text-white text-2xl font-bold animate-fade-in">Hello,</div>
             <div className="text-white text-2xl animate-fade-in-delayed">Welcome to my portfolio.</div>
             <div className="text-white text-xs mb-5 animate-fade-in-delayed">(Work in progress)</div>
@@ -98,9 +98,9 @@ function App() {
                                                 )}
                                                 {folderName === "Games" && (
                                                     <>
-                                                        <AppIcon name="Game 1" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
-                                                        <AppIcon name="Game 2" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
-                                                        <AppIcon name="Game 3" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+                                                        <AppIcon name="Coming" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+                                                        <AppIcon name="Soon" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+                                                        <AppIcon name=":)" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                     </>
                                                 )}
                                             </div>
