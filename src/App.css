@@ -23,6 +23,6 @@
     95% { transform: rotate(2deg); }
     100% { transform: rotate(-1deg); }
 }
-.hover-ring:hover {
+.hover-ring {
     animation: ring 1s ease-in-out;
 }

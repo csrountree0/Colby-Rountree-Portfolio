@@ -37,7 +37,8 @@ function App() {
     return (
         <div className="select-none bg-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
             <div className="text-white text-2xl font-bold animate-fade-in">Hello,</div>
-            <div className="text-white text-2xl mb-5 animate-fade-in-delayed">Welcome to my portfolio.</div>
+            <div className="text-white text-2xl animate-fade-in-delayed">Welcome to my portfolio.</div>
+            <div className="text-white text-xs mb-5 animate-fade-in-delayed">(Work in progress)</div>
 
             {/* Phone View */}
             <div className="w-72 h-[600px] bg-black rounded-3xl overflow-hidden shadow-xl border-4 border-black-800 relative animate-fade-in-more-delayed">
@@ -90,6 +91,7 @@ function App() {
                                                 {folderName === "Projects" && (
                                                     <>
                                                         <AppIcon name="Pathfinder" color="bg-gray-400" image="/maze.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Maze-Generation-and-Pathfinding/", "_blank");}}/>
+                                                        <AppIcon name ="vScrobbler" color="bg-white" image="/vScrobblerLogo.svg"   onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/vscrobbler/", "_blank");}}/>
                                                         <AppIcon name="Visual Sort" color="bg-black rotate-270" letter="sort" icon={true} onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/sort-visualizer/", "_blank");}}/>
                                                         <AppIcon name="More Details" color="bg-blue-400" letter="info" icon={true} onClick={(e) => {e.stopPropagation(); setIsTraditionalView(true);}}/>
                                                     </>

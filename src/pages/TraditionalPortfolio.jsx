@@ -27,13 +27,13 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
     return (
         <div className="min-h-screen bg-gray-900 text-white p-8">
             {/* Header with Phone Icon */}
-            <div className="flex justify-between items-center mb-12">
-                <div className="w-1/3">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-8 sm:mb-12 gap-4 sm:gap-0">
+                <div className="w-full sm:w-1/3 text-center sm:text-left">
                     <h1 className="text-2xl font-bold select-none">Colby Rountree</h1>
                 </div>
-                <nav className="w-1/3 flex justify-center space-x-8 relative">
+                <nav className="w-full sm:w-1/3 flex justify-center space-x-4 sm:space-x-8 relative">
                     <button 
-                        className={`text-lg px-4 py-2 rounded-lg transition-all duration-300 ${
+                        className={`text-base sm:text-lg px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 ${
                             currentSection === 'about' 
                                 ? 'text-blue-400 bg-blue-400/10' 
                                 : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
@@ -43,7 +43,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                         About
                     </button>
                     <button 
-                        className={`text-lg px-4 py-2 rounded-lg transition-all duration-300 ${
+                        className={`text-base sm:text-lg px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 ${
                             currentSection === 'projects' 
                                 ? 'text-blue-400 bg-blue-400/10' 
                                 : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
@@ -53,7 +53,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                         Projects
                     </button>
                     <button 
-                        className={`text-lg px-4 py-2 rounded-lg transition-all duration-300 ${
+                        className={`text-base sm:text-lg px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 ${
                             currentSection === 'contact' 
                                 ? 'text-blue-400 bg-blue-400/10' 
                                 : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
@@ -63,7 +63,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                         Contact
                     </button>
                 </nav>
-                <div className="w-1/3 flex justify-end">
+                <div className="w-full sm:w-1/3 flex justify-center sm:justify-end">
                     <button 
                         onClick={onReturnToPhone}
                         className="p-2 rounded-full hover:bg-gray-800 transition-colors"

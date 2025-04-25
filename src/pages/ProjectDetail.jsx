@@ -21,6 +21,23 @@ const projects = {
         github: "https://github.com/csrountree0/Maze-Generation-and-Pathfinding"
     },
     
+    vScrobbler:{
+        title: "vScrobbler",
+        description: "A web application which allows users to scrobble their vinyl records.",
+        longDescription: "This project allows users to continue tracking their listening habits while enjoying physical formats such as vinyl records. It utilizes the Last.fm API to submit scrobbles to user accounts and the Discogs API to pull detailed album metadata for accurate scrobbling. A Cloudflare Worker is deployed to ensure the security of API keys and handle the process of user scrobbling requests.",
+        technologies: [
+            { name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+            { name: "Cloudflare", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" },
+            { name: "HTML5", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" },
+            { name: "Tailwind", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" },
+         ],
+        images: [
+            { src: "/vScrobblerLogo.svg", alt: "vScrobLogo" }
+        ],
+        link: "https://csrountree0.github.io/vscrobbler/",
+        github: "https://github.com/csrountree0/vscrobbler"
+    },
+
     sortvisualizer:{
         title: "Sorting Visualizer",
         description: "A sorting visualization tool that demonstrates various sorting algorithms in action.",
@@ -53,6 +70,7 @@ const projects = {
         ],
         github: "https://github.com/csrountree0/Camera-Modifier"
     }
+
 };
 
 function ProjectDetail({ projectId, onBack }) {
