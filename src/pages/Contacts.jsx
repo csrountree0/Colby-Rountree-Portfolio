@@ -30,7 +30,7 @@ function ContactsPage() {
             {/* Profile Header */}
             <div className="flex items-center pr-4 pl-4 pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
-                <img src="/me.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
+                <img src="/Colby-Rountree-Portfolio/me.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
                  </div>
                 <div>
                     <div className="text-white text-xl font-medium">{profile.name}</div>

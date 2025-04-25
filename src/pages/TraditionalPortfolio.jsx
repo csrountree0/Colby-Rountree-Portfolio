@@ -12,7 +12,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
     }, [initialSection]);
 
     const [socialLinks] = useState([
-        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: '#' },
+        { name: 'LinkedIn', image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg', url: 'https://www.linkedin.com/in/colby-rountree-aa2a7b2a5/' },
         { name: 'GitHub', image: 'https://img.icons8.com/?size=100&id=62856&format=png&color=FFFFFF', url: 'https://github.com/csrountree0' }
      ]);
 
@@ -82,7 +82,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                         <div className="flex flex-col sm:flex-row items-center gap-6">
                             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500">
                                 <img 
-                                    src="/me.jpg" 
+                                    src="/Colby-Rountree-Portfolio/me.jpg" 
                                     alt="Colby Rountree" 
                                     className="w-full h-full object-cover"
                                 />
@@ -115,7 +115,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                                 <Technology tech={{ name: "Python", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" }} size="md" />
                                 <Technology tech={{ name: "SQL", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" }} size="md" />
                                 <Technology tech={{ name: "Git", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" }} size="md" />
-                                <Technology tech={{ name: "RESTful API", logo: "/rest-api-icon.svg" }} size="md" />
+                                <Technology tech={{ name: "RESTful API", logo: "/Colby-Rountree-Portfolio/rest-api-icon.svg" }} size="md" />
                             </div>
                             <div className="mt-4">
                                 <h3 className="text-lg font-semibold mb-2">Soft Skills</h3>
@@ -152,7 +152,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                                 <p className="text-gray-400">August 2022 - May 2026</p>
                                 <p className="text-gray-300 mt-2">
                                     Bachelor of Science in Computer Science<br/>
-                                    GPA: 3.8<br/>
+                                    GPA: 3.77<br/>
                                     President's List 2022 - Present
                                 </p>
                             </div>

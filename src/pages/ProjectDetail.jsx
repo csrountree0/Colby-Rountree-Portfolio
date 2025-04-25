@@ -13,9 +13,9 @@ const projects = {
             { name: "CSS3", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" }
         ],
         images: [
-            { src: "/maze.svg", alt: "Maze Generation" },
-            { src: "/Prims.gif", alt: "Pathfinding Visualization" },
-            { src: "/AStar.gif", alt: "Algorithm Selection" }
+            { src: "/Colby-Rountree-Portfolio/maze.svg", alt: "Maze Generation" },
+            { src: "/Colby-Rountree-Portfolio/Prims.gif", alt: "Pathfinding Visualization" },
+            { src: "/Colby-Rountree-Portfolio/AStar.gif", alt: "Algorithm Selection" }
         ],
         link: "https://csrountree0.github.io/Maze-Generation-and-Pathfinding/",
         github: "https://github.com/csrountree0/Maze-Generation-and-Pathfinding"
@@ -23,8 +23,8 @@ const projects = {
     
     vScrobbler:{
         title: "vScrobbler",
-        description: "A web application which allows users to scrobble their vinyl records.",
-        longDescription: "This project allows users to continue tracking their listening habits while enjoying physical formats such as vinyl records. It utilizes the Last.fm API to submit scrobbles to user accounts and the Discogs API to pull detailed album metadata for accurate scrobbling. A Cloudflare Worker is deployed to ensure the security of API keys and handle the process of user scrobbling requests.",
+        description: "A web application which allows users to scrobble their physical media to their Last.fm account using the Discogs API.",
+        longDescription: "This project allows users to continue tracking their listening habits while enjoying physical formats such as vinyl records. It utilizes the Last.fm API to submit scrobbles to user accounts and the Discogs API to pull detailed album metadata for accurate scrobbling. A Cloudflare Worker is deployed to ensure the security of API keys and handle the processing of user scrobbling requests.",
         technologies: [
             { name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
             { name: "Cloudflare", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" },
@@ -32,7 +32,7 @@ const projects = {
             { name: "Tailwind", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" },
          ],
         images: [
-            { src: "/vScrobblerLogo.svg", alt: "vScrobLogo" }
+            { src: "/Colby-Rountree-Portfolio/vScrobblerLogo.svg", alt: "vScrobLogo" }
         ],
         link: "https://csrountree0.github.io/vscrobbler/",
         github: "https://github.com/csrountree0/vscrobbler"
@@ -48,9 +48,9 @@ const projects = {
             { name: "CSS3", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" }
         ],
         images: [
-            { src: "/sort.svg", alt: "sort" },
-            { src: "/merge.gif", alt: "Merge Sort" },
-            { src: "/quick.gif", alt: "Quick Sort" },
+            { src: "/Colby-Rountree-Portfolio/sort.svg", alt: "sort" },
+            { src: "/Colby-Rountree-Portfolio/merge.gif", alt: "Merge Sort" },
+            { src: "/Colby-Rountree-Portfolio/quick.gif", alt: "Quick Sort" },
         ],
         link: "https://csrountree0.github.io/sort-visualizer/",
         github: "https://github.com/csrountree0/sort-visualizer"
@@ -66,7 +66,7 @@ const projects = {
             { name: "Tkinter", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" }
         ],
         images: [
-            { src: "/pixel_me.png", alt: "Pixelator" }
+            { src: "/Colby-Rountree-Portfolio/pixel_me.png", alt: "Pixelator" }
         ],
         github: "https://github.com/csrountree0/Camera-Modifier"
     }
@@ -130,33 +130,39 @@ function ProjectDetail({ projectId, onBack }) {
                             </div>
                             
                             {/* Navigation Buttons */}
-                            <button 
-                                onClick={prevImage}
-                                className="absolute w-10 h-10 left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-gray-800/80 hover:bg-gray-700/80 rounded-full transition-colors active:bg-gray-600/80"
-                            >
-                                <span className="material-icons mt-1">chevron_left</span>
-                            </button>
-                            <button 
-                                onClick={nextImage}
-                                className="absolute w-10 h-10 right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-gray-800/80 hover:bg-gray-700/80 rounded-full transition-colors active:bg-gray-600/80"
-                            >
-                                <span className="material-icons mt-1">chevron_right</span>
-                            </button>
+                            {project.images.length > 1 && (
+                                <>
+                                    <button 
+                                        onClick={prevImage}
+                                        className="absolute w-10 h-10 left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-gray-800/80 hover:bg-gray-700/80 rounded-full transition-colors active:bg-gray-600/80"
+                                    >
+                                        <span className="material-icons mt-1">chevron_left</span>
+                                    </button>
+                                    <button 
+                                        onClick={nextImage}
+                                        className="absolute w-10 h-10 right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-gray-800/80 hover:bg-gray-700/80 rounded-full transition-colors active:bg-gray-600/80"
+                                    >
+                                        <span className="material-icons mt-1">chevron_right</span>
+                                    </button>
+                                </>
+                            )}
                         </div>
 
-                        {/* Image Counter */}
-                        <div className="flex gap-3">
-                            {project.images.map((_, index) => (
-                                <div 
-                                    key={index}
-                                    className={`w-2 h-2 rounded-full transition-colors ${
-                                        index === currentImageIndex 
-                                            ? 'bg-blue-500' 
-                                            : 'bg-gray-500'
-                                    }`}
-                                />
-                            ))}
-                        </div>
+                        {/* Image Counter  */}
+                        {project.images.length > 1 && (
+                            <div className="flex gap-3">
+                                {project.images.map((_, index) => (
+                                    <div 
+                                        key={index}
+                                        className={`w-2 h-2 rounded-full transition-colors ${
+                                            index === currentImageIndex 
+                                                ? 'bg-blue-500' 
+                                                : 'bg-gray-500'
+                                        }`}
+                                    />
+                                ))}
+                            </div>
+                        )}
 
                         {/* Project Title */}
                         <h1 className="text-3xl font-bold text-center">{project.title}</h1>

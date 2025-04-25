@@ -5,13 +5,15 @@ import ClockPage from './pages/Clock'
 import WeatherPage from './pages/Weather'
 import ContactsPage from './pages/Contacts'
 import TraditionalPortfolio from './pages/TraditionalPortfolio'
+import WIPPage from './pages/WIP'
 import { getTimeBasedBackground } from './pages/Clock'
 
 function App() {
     const [currentPage, setCurrentPage] = useState("home");
     const [currentTime, setCurrentTime] = useState(new Date());
-    const [openFolders, setOpenFolders] = useState({});
+    const [openFolder, setOpenFolder] = useState(null);
     const [isTraditionalView, setIsTraditionalView] = useState(false);
+    const [traditionPage, setTraditionPage] = useState("about");
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -22,16 +24,13 @@ function App() {
     }, []);
 
     const toggleFolder = (folderName) => {
-        setOpenFolders(prev => ({
-            ...prev,
-            [folderName]: !prev[folderName]
-        }));
+        setOpenFolder(prev => prev === folderName ? null : folderName);
     };
 
-    const isAnyFolderOpen = Object.values(openFolders).some(isOpen => isOpen);
+    const isAnyFolderOpen = openFolder !== null;
 
     if (isTraditionalView) {
-        return <TraditionalPortfolio onReturnToPhone={() => setIsTraditionalView(false)} initialSection="projects" />;
+        return <TraditionalPortfolio onReturnToPhone={() => setIsTraditionalView(false)} initialSection={traditionPage} />;
     }
 
     return (
@@ -67,6 +66,7 @@ function App() {
                         currentPage === "Clock" ? `animate-app-load bg-gradient-to-b ${getTimeBasedBackground(currentTime.getHours())}` :
                         currentPage === "Weather" ? "animate-app-load bg-gradient-to-b from-sky-900 to-blue-900" :
                         currentPage === "Contacts" ? "animate-app-load bg-gradient-to-b from-indigo-900 to-purple-900" :
+                        currentPage === "Soon" ? "animate-app-load bg-orange-600" :
                         "bg-gradient-to-b from-blue-600 to-purple-500"
                     }`}>
                         <div className="flex-1 flex flex-col">
@@ -78,25 +78,26 @@ function App() {
                                         {/* Apps */}
                                         <AppIcon name="Clock" color="bg-red-400" letter="schedule" icon={true} onClick={() => setCurrentPage("Clock")}/>
                                         <AppIcon name="Weather" color="bg-blue-400" letter="cloud" icon={true} onClick={() => setCurrentPage("Weather")}/>
+                                        <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
                                      </div>
 
                                     {/* Folder Contents */}
-                                    {Object.entries(openFolders).map(([folderName, isOpen]) => isOpen && (
-                                        <div key={folderName} className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center animate-fade-in" onClick={(e) => {
+                                    {openFolder && (
+                                        <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center animate-fade-in" onClick={(e) => {
                                             e.stopPropagation();
-                                            toggleFolder(folderName);
+                                            toggleFolder(openFolder);
                                         }}>
-                                            <div className="text-white text-2xl font-bold mb-4">{folderName}</div>
+                                            <div className="text-white text-2xl font-bold mb-4">{openFolder}</div>
                                             <div className="grid grid-cols-3 gap-4 p-4 mb-26" onClick={(e) => e.stopPropagation()}>
-                                                {folderName === "Projects" && (
+                                                {openFolder === "Projects" && (
                                                     <>
-                                                        <AppIcon name="Pathfinder" color="bg-gray-400" image="/maze.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Maze-Generation-and-Pathfinding/", "_blank");}}/>
-                                                        <AppIcon name ="vScrobbler" color="bg-white" image="/vScrobblerLogo.svg"   onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/vscrobbler/", "_blank");}}/>
+                                                        <AppIcon name="Pathfinder" color="bg-gray-400" image="/Colby-Rountree-Portfolio/maze.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Maze-Generation-and-Pathfinding/", "_blank");}}/>
+                                                        <AppIcon name ="vScrobbler" color="bg-white" image="/Colby-Rountree-Portfolio/vScrobblerLogo.svg"   onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/vscrobbler/", "_blank");}}/>
                                                         <AppIcon name="Visual Sort" color="bg-black rotate-270" letter="sort" icon={true} onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/sort-visualizer/", "_blank");}}/>
-                                                        <AppIcon name="More Details" color="bg-blue-400" letter="info" icon={true} onClick={(e) => {e.stopPropagation(); setIsTraditionalView(true);}}/>
+                                                        <AppIcon name="More Details" color="bg-blue-400" letter="info" icon={true} onClick={(e) => {e.stopPropagation(); setIsTraditionalView(true); setTraditionPage("projects");}}/>
                                                     </>
                                                 )}
-                                                {folderName === "Games" && (
+                                                {openFolder === "Games" && (
                                                     <>
                                                         <AppIcon name="Coming" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                         <AppIcon name="Soon" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
@@ -105,7 +106,7 @@ function App() {
                                                 )}
                                             </div>
                                         </div>
-                                    ))}
+                                    )}
 
                                     {/* Spacer */}
                                     <div className="flex-grow"></div>
@@ -113,16 +114,18 @@ function App() {
                                     {/* Dock */}
                                     <div className={`${isAnyFolderOpen ? 'bg-black/40' : 'bg-white/20'} backdrop-blur-sm rounded-xl p-3 flex justify-around`}>
                                         <AppIcon name="Contacts" color="bg-green-500" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")} isDark={isAnyFolderOpen}/>
-                                        <Folder name="Projects" color="bg-indigo-500" letter="terminal" icon={true} showLabel={false} isOpen={openFolders["Projects"]} isDark={isAnyFolderOpen && !openFolders["Projects"]} onClick={() => toggleFolder("Projects")}/>
-                                        <Folder name="Games" color="bg-gray-500" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolders["Games"]} isDark={isAnyFolderOpen && !openFolders["Games"]} onClick={() => toggleFolder("Games")}/>
+                                        <Folder name="Projects" color="bg-indigo-500" letter="terminal" icon={true} showLabel={false} isOpen={openFolder === "Projects"} isDark={isAnyFolderOpen && openFolder !== "Projects"} onClick={() => toggleFolder("Projects")}/>
+                                        <Folder name="Games" color="bg-gray-500" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolder === "Games"} isDark={isAnyFolderOpen && openFolder !== "Games"} onClick={() => toggleFolder("Games")}/>
                                     </div>
                                 </>
                             ) : currentPage === "Weather" ? (
                                 <WeatherPage />
                             ) : currentPage === "Clock" ? (
-                                <ClockPage />
+                                <ClockPage currentTime={currentTime} />
                             ) : currentPage === "Contacts" ? (
                                 <ContactsPage />
+                            ) : currentPage === "Soon" ? (
+                                <WIPPage />
                             ) : null}
                         </div>
 
@@ -135,7 +138,7 @@ function App() {
                 Don't like the view? Click
                 <button 
                     className="text-blue-400 hover:text-blue-300 ml-1 cursor-pointer"
-                    onClick={() => setIsTraditionalView(true)}
+                    onClick={() => {setIsTraditionalView(true); setTraditionPage("about");}}
                 >
                     here
                 </button> to change
