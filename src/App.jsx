@@ -102,7 +102,7 @@ function App() {
                                                 )}
                                                 {openFolder === "Games" && (
                                                     <>
-                                                        <AppIcon name="Sudoku" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Sudoku/", "_blank");} }/>
+                                                        <AppIcon name="Sudoku" color="bg-gray-300" image="https://www.svgrepo.com/show/519514/sudoku.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Sudoku/", "_blank");} }/>
                                                         <AppIcon name="More" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                         <AppIcon name="Soon" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                     </>
@@ -116,9 +116,9 @@ function App() {
 
                                     {/* Dock */}
                                     <div className={`${isAnyFolderOpen ? 'bg-black/40' : 'bg-white/20'} backdrop-blur-sm rounded-xl p-3 flex justify-around`}>
-                                        <AppIcon name="Contacts" color="bg-green-500" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")} isDark={isAnyFolderOpen}/>
+                                        <AppIcon name="Contacts" color="bg-cyan-400" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")} isDark={isAnyFolderOpen}/>
                                         <Folder name="Projects" color="bg-indigo-500" letter="terminal" icon={true} showLabel={false} isOpen={openFolder === "Projects"} isDark={isAnyFolderOpen && openFolder !== "Projects"} onClick={() => toggleFolder("Projects")}/>
-                                        <Folder name="Games" color="bg-gray-500" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolder === "Games"} isDark={isAnyFolderOpen && openFolder !== "Games"} onClick={() => toggleFolder("Games")}/>
+                                        <Folder name="Games" color="bg-green-500" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolder === "Games"} isDark={isAnyFolderOpen && openFolder !== "Games"} onClick={() => toggleFolder("Games")}/>
                                     </div>
                                 </>
                             ) : currentPage === "Weather" ? (
