@@ -102,9 +102,9 @@ function App() {
                                                 )}
                                                 {openFolder === "Games" && (
                                                     <>
-                                                        <AppIcon name="Coming" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+                                                        <AppIcon name="Sudoku" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Sudoku/", "_blank");} }/>
+                                                        <AppIcon name="More" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                         <AppIcon name="Soon" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
-                                                        <AppIcon name=":)" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                     </>
                                                 )}
                                             </div>
