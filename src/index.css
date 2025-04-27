@@ -26,6 +26,12 @@
     }
 }
 
+.custom-scroll{
+    scrollbar-width:thin;
+    scrollbar-color: #ffffff #f1f1f100;
+}
+
+
 .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
 }

@@ -8,6 +8,7 @@ import TraditionalPortfolio from './pages/TraditionalPortfolio'
 import WIPPage from './pages/WIP'
 import { getTimeBasedBackground } from './pages/Clock'
 import CalculatorPage from './pages/Calculator';
+import GalleryPage from './pages/Gallery';
 
 function App() {
     const [currentPage, setCurrentPage] = useState("home");
@@ -69,9 +70,10 @@ function App() {
                         currentPage === "Contacts" ? "animate-app-load bg-gradient-to-b from-indigo-900 to-purple-900" :
                         currentPage === "Soon" ? "animate-app-load bg-orange-600" :
                         currentPage === "Calculator" ? "animate-app-load bg-gray-500" :
+                        currentPage === "Gallery" ? "animate-app-load bg-gray-500" :
                         "bg-gradient-to-b from-blue-600 to-purple-500"
                     }`}>
-                        <div className="flex-1 flex flex-col">
+                        <div className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden custom-scroll">
                             <div className="h-12"></div> {/* Spacer for notch */}
                             {currentPage === "home" ? (
                                 <>
@@ -80,6 +82,9 @@ function App() {
                                         {/* Apps */}
                                         <AppIcon name="Clock" color="bg-red-400" letter="schedule" icon={true} onClick={() => setCurrentPage("Clock")}/>
                                         <AppIcon name="Weather" color="bg-blue-400" letter="cloud" icon={true} onClick={() => setCurrentPage("Weather")}/>
+
+                                        <AppIcon name="Gallery" color="bg-sky-400" letter="photo_library" icon={true} onClick={(e) => {e.stopPropagation(); setCurrentPage("Gallery");}}/>
+
                                         <AppIcon name="Calculator" color="bg-orange-400" letter="calculate" icon={true} onClick={() => setCurrentPage("Calculator")}/>
                                         <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
                                      </div>
@@ -122,15 +127,17 @@ function App() {
                                     </div>
                                 </>
                             ) : currentPage === "Weather" ? (
-                                <WeatherPage />
+                                <WeatherPage/>
                             ) : currentPage === "Clock" ? (
-                                <ClockPage currentTime={currentTime} />
+                                <ClockPage currentTime={currentTime}/>
                             ) : currentPage === "Contacts" ? (
-                                <ContactsPage />
+                                <ContactsPage/>
                             ) : currentPage === "Soon" ? (
-                                <WIPPage />
+                                <WIPPage/>
                             ) : currentPage === "Calculator" ? (
-                                <CalculatorPage />
+                                <CalculatorPage/>
+                            ) : currentPage === "Gallery" ? (
+                                <GalleryPage/>
                             ) : null}
                         </div>
 
