@@ -7,6 +7,7 @@ import ContactsPage from './pages/Contacts'
 import TraditionalPortfolio from './pages/TraditionalPortfolio'
 import WIPPage from './pages/WIP'
 import { getTimeBasedBackground } from './pages/Clock'
+import CalculatorPage from './pages/Calculator';
 
 function App() {
     const [currentPage, setCurrentPage] = useState("home");
@@ -67,6 +68,7 @@ function App() {
                         currentPage === "Weather" ? "animate-app-load bg-gradient-to-b from-sky-900 to-blue-900" :
                         currentPage === "Contacts" ? "animate-app-load bg-gradient-to-b from-indigo-900 to-purple-900" :
                         currentPage === "Soon" ? "animate-app-load bg-orange-600" :
+                        currentPage === "Calculator" ? "animate-app-load bg-gray-500" :
                         "bg-gradient-to-b from-blue-600 to-purple-500"
                     }`}>
                         <div className="flex-1 flex flex-col">
@@ -78,6 +80,7 @@ function App() {
                                         {/* Apps */}
                                         <AppIcon name="Clock" color="bg-red-400" letter="schedule" icon={true} onClick={() => setCurrentPage("Clock")}/>
                                         <AppIcon name="Weather" color="bg-blue-400" letter="cloud" icon={true} onClick={() => setCurrentPage("Weather")}/>
+                                        <AppIcon name="Calculator" color="bg-orange-400" letter="calculate" icon={true} onClick={() => setCurrentPage("Calculator")}/>
                                         <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
                                      </div>
 
@@ -126,6 +129,8 @@ function App() {
                                 <ContactsPage />
                             ) : currentPage === "Soon" ? (
                                 <WIPPage />
+                            ) : currentPage === "Calculator" ? (
+                                <CalculatorPage />
                             ) : null}
                         </div>
 
