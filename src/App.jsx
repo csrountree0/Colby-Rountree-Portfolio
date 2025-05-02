@@ -108,8 +108,10 @@ function App() {
                                                 {openFolder === "Games" && (
                                                     <>
                                                         <AppIcon name="Sudoku" color="bg-gray-300" image="https://www.svgrepo.com/show/45383/sudoku.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Sudoku/", "_blank");} }/>
+                                                        <AppIcon name="Grid Game" color="bg-gray-300" image="/Colby-Rountree-Portfolio/Grid-Game.png" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/grid-game/", "_blank");} }/>
                                                         <AppIcon name="More" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                         <AppIcon name="Soon" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+
                                                     </>
                                                 )}
                                             </div>
