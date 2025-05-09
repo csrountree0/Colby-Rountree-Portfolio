@@ -9,6 +9,7 @@ import WIPPage from './pages/WIP'
 import { getTimeBasedBackground } from './pages/Clock'
 import CalculatorPage from './pages/Calculator';
 import GalleryPage from './pages/Gallery';
+import NewPage from './pages/New';
 
 function App() {
     const [currentPage, setCurrentPage] = useState("home");
@@ -38,7 +39,16 @@ function App() {
     return (
         <div className="select-none bg-gray-900 flex flex-col items-center justify-center min-h-screen p-4">
             <div className="text-white text-2xl font-bold animate-fade-in">Hello,</div>
-            <div className="text-white text-2xl animate-fade-in-delayed">Welcome to my portfolio.</div>
+            <div className="ml-8 text-white text-2xl animate-fade-in-delayed flex items-center gap-2">
+                Welcome to my portfolio.
+                <button 
+                    className="cursor-pointer w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-colors"
+                    title="What's New"
+                    onClick={() => setCurrentPage("New")}
+                >
+                    <span className="material-icons text-sm">info</span>
+                </button>
+            </div>
             <div className="text-white text-xs mb-5 animate-fade-in-delayed">(Work in progress)</div>
 
             {/* Phone View */}
@@ -71,6 +81,7 @@ function App() {
                         currentPage === "Soon" ? "animate-app-load bg-orange-600" :
                         currentPage === "Calculator" ? "animate-app-load bg-gray-500" :
                         currentPage === "Gallery" ? "animate-app-load bg-gray-500" :
+                        currentPage === "New" ? "animate-app-load bg-gradient-to-b from-gray-900 to-purple-900" :
                         "bg-gradient-to-b from-blue-600 to-purple-500"
                     }`}>
                         <div className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden custom-scroll">
@@ -86,6 +97,7 @@ function App() {
                                         <AppIcon name="Gallery" color="bg-sky-400" letter="photo_library" icon={true} onClick={(e) => {e.stopPropagation(); setCurrentPage("Gallery");}}/>
 
                                         <AppIcon name="Calculator" color="bg-orange-400" letter="calculate" icon={true} onClick={() => setCurrentPage("Calculator")}/>
+                                       {/* <AppIcon name="Journal" color="bg-indigo-400" letter="book" icon={true} onClick={() => setCurrentPage("Journal")}/> */}
                                         <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
                                      </div>
 
@@ -140,6 +152,8 @@ function App() {
                                 <CalculatorPage/>
                             ) : currentPage === "Gallery" ? (
                                 <GalleryPage/>
+                            ) : currentPage === "New" ? (
+                                <NewPage/>
                             ) : null}
                         </div>
 
