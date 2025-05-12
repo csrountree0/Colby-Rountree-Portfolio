@@ -9,7 +9,8 @@ import WIPPage from './pages/WIP'
 import { getTimeBasedBackground } from './pages/Clock'
 import CalculatorPage from './pages/Calculator';
 import GalleryPage from './pages/Gallery';
-import NewPage from './pages/New';
+import UpdatesPage from './pages/Updates';
+import MusicPage from './pages/MusicTrack';
 
 function App() {
     const [currentPage, setCurrentPage] = useState("home");
@@ -44,7 +45,7 @@ function App() {
                 <button 
                     className="cursor-pointer w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-colors"
                     title="What's New"
-                    onClick={() => setCurrentPage("New")}
+                    onClick={() => setCurrentPage("Updates")}
                 >
                     <span className="material-icons text-sm">info</span>
                 </button>
@@ -81,7 +82,8 @@ function App() {
                         currentPage === "Soon" ? "animate-app-load bg-orange-600" :
                         currentPage === "Calculator" ? "animate-app-load bg-gray-500" :
                         currentPage === "Gallery" ? "animate-app-load bg-gray-500" :
-                        currentPage === "New" ? "animate-app-load bg-gradient-to-b from-gray-900 to-purple-900" :
+                        currentPage === "Updates" ? "animate-app-load bg-gradient-to-b from-gray-900 to-purple-900" :
+                        currentPage === "Music" ? "animate-app-load bg-gradient-to-b from-red-900 to-red-400" :
                         "bg-gradient-to-b from-blue-600 to-purple-500"
                     }`}>
                         <div className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden custom-scroll">
@@ -98,6 +100,7 @@ function App() {
 
                                         <AppIcon name="Calculator" color="bg-orange-400" letter="calculate" icon={true} onClick={() => setCurrentPage("Calculator")}/>
                                        {/* <AppIcon name="Journal" color="bg-indigo-400" letter="book" icon={true} onClick={() => setCurrentPage("Journal")}/> */}
+                                         <AppIcon name="Music" color="bg-red-500" letter="music_note" icon={true} onClick={() => setCurrentPage("Music")}/>
                                         <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
                                      </div>
 
@@ -152,8 +155,10 @@ function App() {
                                 <CalculatorPage/>
                             ) : currentPage === "Gallery" ? (
                                 <GalleryPage/>
-                            ) : currentPage === "New" ? (
-                                <NewPage/>
+                            ) : currentPage === "Updates" ? (
+                                <UpdatesPage/>
+                            ) : currentPage === "Music" ? (
+                                <MusicPage/>
                             ) : null}
                         </div>
 

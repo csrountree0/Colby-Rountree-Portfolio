@@ -1,8 +1,15 @@
 import { useState } from 'react';
 
 
-function NewPage() {
+function UpdatesPage() {
     const [updates] = useState([
+        {
+            date: "05-12-2025",
+            changes: [
+                "Added the Music app which displays some of my music stats from last.fm",
+                "Spotify api used for missing track and artist images",
+             ]
+        },
         {
             date: "05-08-2025",
             changes: [
@@ -61,4 +68,4 @@ function NewPage() {
     );
 }
 
-export default NewPage; 
+export default UpdatesPage; 
