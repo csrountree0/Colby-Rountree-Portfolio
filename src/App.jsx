@@ -11,6 +11,7 @@ import CalculatorPage from './pages/Calculator';
 import GalleryPage from './pages/Gallery';
 import UpdatesPage from './pages/Updates';
 import MusicPage from './pages/MusicTrack';
+import CalendarPage from './pages/Calendar';
 
 function App() {
     const [currentPage, setCurrentPage] = useState("home");
@@ -84,6 +85,7 @@ function App() {
                         currentPage === "Gallery" ? "animate-app-load bg-gray-500" :
                         currentPage === "Updates" ? "animate-app-load bg-gradient-to-b from-gray-900 to-purple-900" :
                         currentPage === "Music" ? "animate-app-load bg-gradient-to-b from-red-900 to-red-400" :
+                        currentPage === "Calendar" ? "animate-app-load bg-gradient-to-b from-blue-900 to-indigo-900" :
                         "bg-gradient-to-b from-blue-600 to-purple-500"
                     }`}>
                         <div className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden custom-scroll">
@@ -99,8 +101,8 @@ function App() {
                                         <AppIcon name="Gallery" color="bg-sky-400" letter="photo_library" icon={true} onClick={(e) => {e.stopPropagation(); setCurrentPage("Gallery");}}/>
 
                                         <AppIcon name="Calculator" color="bg-orange-400" letter="calculate" icon={true} onClick={() => setCurrentPage("Calculator")}/>
-                                       {/* <AppIcon name="Journal" color="bg-indigo-400" letter="book" icon={true} onClick={() => setCurrentPage("Journal")}/> */}
-                                         <AppIcon name="Music" color="bg-red-500" letter="music_note" icon={true} onClick={() => setCurrentPage("Music")}/>
+                                        <AppIcon name="Calendar" color="bg-blue-400" letter="calendar_month" icon={true} onClick={() => setCurrentPage("Calendar")}/>
+                                        <AppIcon name="Music" color="bg-red-500" letter="music_note" icon={true} onClick={() => setCurrentPage("Music")}/>
                                         <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
                                      </div>
 
@@ -159,6 +161,8 @@ function App() {
                                 <UpdatesPage/>
                             ) : currentPage === "Music" ? (
                                 <MusicPage/>
+                            ) : currentPage === "Calendar" ? (
+                                <CalendarPage/>
                             ) : null}
                         </div>
 
