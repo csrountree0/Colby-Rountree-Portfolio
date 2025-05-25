@@ -67,7 +67,7 @@ function CalendarPage() {
         <div className="h-full flex flex-col text-white p-4">
              <button 
                         onClick={() => setShowAddEvent(true)}
-                        className="material-icons text-white/80 hover:text-white/50 absolute right-0 mr-7 mt-5"
+                        className="material-icons text-white/80 hover:text-white/50 ml-auto cursor-pointer"
                     >
                         add_circle
                     </button>
@@ -121,7 +121,7 @@ function CalendarPage() {
                             >
                                 {day}
                                 {dayEvents.length > 0 && (
-                                    <div className="absolute bottom-1 w-1 h-1 bg-white rounded-full"></div>
+                                    <div className="absolute bottom-1 w-1 h-1 bg-red-500 rounded-full"></div>
                                 )}
                             </button>
                         );

@@ -4,6 +4,13 @@ import { useState } from 'react';
 function UpdatesPage() {
     const [updates] = useState([
         {
+            date: "05-25-2025",
+            changes: [
+                "Added the Calendar app which displays the dates and allows you to add events to them.",
+                "This app is a small demo of a larger project I plan to create."
+            ]
+        },
+        {
             date: "05-12-2025",
             changes: [
                 "Added the Music app which displays some of my music stats from last.fm",
