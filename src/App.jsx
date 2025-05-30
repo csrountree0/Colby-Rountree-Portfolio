@@ -95,16 +95,19 @@ function App() {
                                     {/* App Grid */}
                                     <div className="grid grid-cols-4 gap-4">
                                         {/* Apps */}
+                                        <AppIcon name="Calendar" color="bg-blue-400" letter="calendar_month" icon={true} onClick={() => setCurrentPage("Calendar")}/>
+                                        <AppIcon name="Gallery" color="bg-sky-400" letter="photo_library" icon={true} onClick={() => {setCurrentPage("Gallery");}}/>
+
                                         <AppIcon name="Clock" color="bg-red-400" letter="schedule" icon={true} onClick={() => setCurrentPage("Clock")}/>
                                         <AppIcon name="Weather" color="bg-blue-400" letter="cloud" icon={true} onClick={() => setCurrentPage("Weather")}/>
 
-                                        <AppIcon name="Gallery" color="bg-sky-400" letter="photo_library" icon={true} onClick={(e) => {e.stopPropagation(); setCurrentPage("Gallery");}}/>
 
                                         <AppIcon name="Calculator" color="bg-orange-400" letter="calculate" icon={true} onClick={() => setCurrentPage("Calculator")}/>
-                                        <AppIcon name="Calendar" color="bg-blue-400" letter="calendar_month" icon={true} onClick={() => setCurrentPage("Calendar")}/>
                                         <AppIcon name="Music" color="bg-red-500" letter="music_note" icon={true} onClick={() => setCurrentPage("Music")}/>
                                         <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
-                                     </div>
+                                        <Folder name="Finance" color="bg-green-700" icon={true} letter="attach_money" isOpen={openFolder === "Finance"} isDark={isAnyFolderOpen && openFolder !== "Finance"} onClick={() => toggleFolder("Finance")}> </Folder>
+
+                                    </div>
 
                                     {/* Folder Contents */}
                                     {openFolder && (
@@ -143,6 +146,7 @@ function App() {
                                         <AppIcon name="Contacts" color="bg-cyan-400" letter="person" showLabel={false} icon={true} onClick={() => setCurrentPage("Contacts")} isDark={isAnyFolderOpen}/>
                                         <Folder name="Projects" color="bg-indigo-500" letter="terminal" icon={true} showLabel={false} isOpen={openFolder === "Projects"} isDark={isAnyFolderOpen && openFolder !== "Projects"} onClick={() => toggleFolder("Projects")}/>
                                         <Folder name="Games" color="bg-green-500" letter="sports_esports" icon={true} showLabel={false} isOpen={openFolder === "Games"} isDark={isAnyFolderOpen && openFolder !== "Games"} onClick={() => toggleFolder("Games")}/>
+
                                     </div>
                                 </>
                             ) : currentPage === "Weather" ? (
