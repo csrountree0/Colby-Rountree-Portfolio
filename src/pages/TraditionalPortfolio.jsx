@@ -152,7 +152,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                                 <p className="text-gray-400">August 2022 - May 2026</p>
                                 <p className="text-gray-300 mt-2">
                                     Bachelor of Science in Computer Science<br/>
-                                    GPA: 3.77<br/>
+                                    GPA: 3.8<br/>
                                     President's List 2022 - Present
                                 </p>
                             </div>

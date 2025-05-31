@@ -4,10 +4,19 @@ import { useState } from 'react';
 function UpdatesPage() {
     const [updates] = useState([
         {
+            date:"05-30-2025",
+            changes: [
+                "Changed app layout",
+                "Created Finance folder",
+                "Added Stock News Analyzer app to Finance & Project Folder",
+                "Added Stock News Analyzer to Traditional Portfolio Projects section"
+            ]
+        },
+        {
             date: "05-25-2025",
             changes: [
-                "Added the Calendar app which displays the dates and allows you to add events to them.",
-                "This app is a small demo of a larger project I plan to create."
+                "Added the Calendar app which displays the dates and allows you to add events to them",
+                "This app is a small demo of a larger project I plan to create"
             ]
         },
         {

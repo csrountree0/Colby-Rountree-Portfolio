@@ -104,8 +104,9 @@ function App() {
 
                                         <AppIcon name="Calculator" color="bg-orange-400" letter="calculate" icon={true} onClick={() => setCurrentPage("Calculator")}/>
                                         <AppIcon name="Music" color="bg-red-500" letter="music_note" icon={true} onClick={() => setCurrentPage("Music")}/>
-                                        <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
                                         <Folder name="Finance" color="bg-green-700" icon={true} letter="attach_money" isOpen={openFolder === "Finance"} isDark={isAnyFolderOpen && openFolder !== "Finance"} onClick={() => toggleFolder("Finance")}> </Folder>
+
+                                        <AppIcon name="Soon" color="bg-orange-400" letter="build" icon={true} onClick={() => setCurrentPage("Soon")}/>
 
                                     </div>
 
@@ -119,10 +120,12 @@ function App() {
                                             <div className="grid grid-cols-3 gap-4 p-4 mb-26" onClick={(e) => e.stopPropagation()}>
                                                 {openFolder === "Projects" && (
                                                     <>
-                                                        <AppIcon name="Pathfinder" color="bg-gray-400" image="/Colby-Rountree-Portfolio/maze.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Maze-Generation-and-Pathfinding/", "_blank");}}/>
+                                                        <AppIcon name="News Analyzer" color="bg-white" image="/Colby-Rountree-Portfolio/StockNewsAnalyzer/stocknewsicon.png" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/StockNewsAnalyzer/", "_blank");} }/>
                                                         <AppIcon name ="vScrobbler" color="bg-white" image="/Colby-Rountree-Portfolio/vScrobblerLogo.svg"   onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/vscrobbler/", "_blank");}}/>
+                                                        <AppIcon name="Pathfinder" color="bg-gray-400" image="/Colby-Rountree-Portfolio/MazeGen/maze.svg" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/Maze-Generation-and-Pathfinding/", "_blank");}}/>
                                                         <AppIcon name="Visual Sort" color="bg-black rotate-270" letter="sort" icon={true} onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/sort-visualizer/", "_blank");}}/>
                                                         <AppIcon name="More Details" color="bg-blue-400" letter="info" icon={true} onClick={(e) => {e.stopPropagation(); setIsTraditionalView(true); setTraditionPage("projects");}}/>
+
                                                     </>
                                                 )}
                                                 {openFolder === "Games" && (
@@ -131,6 +134,12 @@ function App() {
                                                         <AppIcon name="Grid Game" color="bg-gray-300" image="/Colby-Rountree-Portfolio/Grid-Game.png" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/grid-game/", "_blank");} }/>
                                                         <AppIcon name="More" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
                                                         <AppIcon name="Soon" color="bg-gray-400" letter="sports_esports" icon={true} onClick={(e) => e.stopPropagation()}/>
+
+                                                    </>
+                                                )}
+                                                {openFolder === "Finance" && (
+                                                    <>
+                                                        <AppIcon name="News Analyzer" color="bg-white" image="/Colby-Rountree-Portfolio/StockNewsAnalyzer/stocknewsicon.png" onClick={(e) => {e.stopPropagation(); window.open("https://csrountree0.github.io/StockNewsAnalyzer/", "_blank");} }/>
 
                                                     </>
                                                 )}

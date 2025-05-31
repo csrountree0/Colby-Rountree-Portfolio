@@ -3,6 +3,43 @@ import Technology from '../components/Technology';
 
 // Project data
 const projects = {
+
+    StockNewsAnalyzer:{
+        title: "Stock News Analyzer",
+        description: "A web application which lets you see how certain news article affect the price of a stock as well as view each articles overall sentiment.",
+        longDescription: "This web application explores the relationship between news articles and stock price movements. Users can enter a stock ticker and a specific date range to see relevant news articles that could have impacted the stock’s performance. Each article is analyzed for sentiment using the natural language processing model FINBERT, revealing whether the article’s sentiment is positive, neutral, or negative so users can easily assess the overall tone of the news coverage. However, the analysis can be inaccurate due to the limitations in place by many news organizations to prevent web scraping, limiting analysis to only the title and summary. Additionally, the app charts the stock price 5 days prior up to a year out, allowing users to visualize how sentiment-driven news stories may correlate with changes in stock prices.",
+        technologies: [
+            { name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+            { name: "Cloudflare", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" },
+            { name: "HTML5", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" },
+            { name: "Tailwind", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" },
+        ],
+        images: [
+            { src: "/Colby-Rountree-Portfolio/StockNewsAnalyzer/newsiconscaled.png", alt: "StockNewsAnalyzer" },
+            { src: "/Colby-Rountree-Portfolio/StockNewsAnalyzer/Example.png"}
+        ],
+        link: "https://csrountree0.github.io/StockNewsAnalyzer/",
+        github: "https://github.com/csrountree0/StockNewsAnalyzer"
+    },
+
+    vScrobbler:{
+        title: "vScrobbler",
+        description: "A web application which allows users to scrobble their physical media to their Last.fm account using the Discogs API.",
+        longDescription: "This project allows users to continue tracking their listening habits while enjoying physical formats such as vinyl records. It utilizes the Last.fm API to submit scrobbles to user accounts and the Discogs API to pull detailed album metadata for accurate scrobbling. A Cloudflare Worker is deployed to ensure the security of API keys and handle the processing of user scrobbling requests.",
+        technologies: [
+            { name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+            { name: "Cloudflare", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" },
+            { name: "HTML5", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" },
+            { name: "Tailwind", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" },
+        ],
+        images: [
+            { src: "/Colby-Rountree-Portfolio/vScrobblerLogo.svg", alt: "vScrobLogo" }
+        ],
+        link: "https://csrountree0.github.io/vscrobbler/",
+        github: "https://github.com/csrountree0/vscrobbler"
+    },
+
+
     pathfinder: {
         title: "Maze Generation and Pathfinder",
         description: "A maze generation and pathfinding visualization tool that demonstrates various algorithms in action.",
@@ -13,30 +50,15 @@ const projects = {
             { name: "CSS3", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" }
         ],
         images: [
-            { src: "/Colby-Rountree-Portfolio/maze.svg", alt: "Maze Generation" },
-            { src: "/Colby-Rountree-Portfolio/Prims.gif", alt: "Pathfinding Visualization" },
-            { src: "/Colby-Rountree-Portfolio/AStar.gif", alt: "Algorithm Selection" }
+            { src: "/Colby-Rountree-Portfolio/MazeGen/maze.svg", alt: "Maze Generation" },
+            { src: "/Colby-Rountree-Portfolio/MazeGen/Prims.gif", alt: "Pathfinding Visualization" },
+            { src: "/Colby-Rountree-Portfolio/MazeGen/AStar.gif", alt: "Algorithm Selection" }
         ],
         link: "https://csrountree0.github.io/Maze-Generation-and-Pathfinding/",
         github: "https://github.com/csrountree0/Maze-Generation-and-Pathfinding"
     },
     
-    vScrobbler:{
-        title: "vScrobbler",
-        description: "A web application which allows users to scrobble their physical media to their Last.fm account using the Discogs API.",
-        longDescription: "This project allows users to continue tracking their listening habits while enjoying physical formats such as vinyl records. It utilizes the Last.fm API to submit scrobbles to user accounts and the Discogs API to pull detailed album metadata for accurate scrobbling. A Cloudflare Worker is deployed to ensure the security of API keys and handle the processing of user scrobbling requests.",
-        technologies: [
-            { name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
-            { name: "Cloudflare", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" },
-            { name: "HTML5", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" },
-            { name: "Tailwind", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" },
-         ],
-        images: [
-            { src: "/Colby-Rountree-Portfolio/vScrobblerLogo.svg", alt: "vScrobLogo" }
-        ],
-        link: "https://csrountree0.github.io/vscrobbler/",
-        github: "https://github.com/csrountree0/vscrobbler"
-    },
+
 
     sortvisualizer:{
         title: "Sorting Visualizer",
@@ -48,9 +70,9 @@ const projects = {
             { name: "CSS3", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" }
         ],
         images: [
-            { src: "/Colby-Rountree-Portfolio/sort.svg", alt: "sort" },
-            { src: "/Colby-Rountree-Portfolio/merge.gif", alt: "Merge Sort" },
-            { src: "/Colby-Rountree-Portfolio/quick.gif", alt: "Quick Sort" },
+            { src: "/Colby-Rountree-Portfolio/Sort/sort.svg", alt: "sort" },
+            { src: "/Colby-Rountree-Portfolio/Sort/merge.gif", alt: "Merge Sort" },
+            { src: "/Colby-Rountree-Portfolio/Sort/quick.gif", alt: "Quick Sort" },
         ],
         link: "https://csrountree0.github.io/sort-visualizer/",
         github: "https://github.com/csrountree0/sort-visualizer"
@@ -70,6 +92,8 @@ const projects = {
         ],
         github: "https://github.com/csrountree0/Camera-Modifier"
     }
+
+
 
 };
 
