@@ -134,7 +134,7 @@ function TraditionalPortfolio({ onReturnToPhone, initialSection = 'about' }) {
                             <div className="space-y-6">
                                 <div className="border-l-4 border-blue-400 pl-4">
                                     <h3 className="text-xl font-semibold">Student Education Assistant - Computer Science</h3>
-                                    <p className="text-gray-400">2024 - Present</p>
+                                    <p className="text-gray-400">2024 - Apr 2025</p>
                                     <p className="text-gray-300 mt-2">
                                         • Working with assigned professor to ensure assignments are error-free and ready for distribution<br/>
                                         • Grading assignments to verify accurate responses and provide feedback<br/>

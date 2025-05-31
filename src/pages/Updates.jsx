@@ -7,6 +7,7 @@ function UpdatesPage() {
             date:"05-30-2025",
             changes: [
                 "Changed app layout",
+                "Updated GPA",
                 "Created Finance folder",
                 "Added Stock News Analyzer app to Finance & Project Folder",
                 "Added Stock News Analyzer to Traditional Portfolio Projects section"
